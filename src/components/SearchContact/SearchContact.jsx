@@ -9,19 +9,19 @@ import PropTypes from 'prop-types';
 
 export class SearchContacts extends Component {
   render() {
-    const { changeFilter } = this.props;
+    const { changeFilter, name } = this.props;
 
     return (
       <StyledSearchWrapper>
         <StyledContactsHeader>Contacts</StyledContactsHeader>
-        <StyledSearchLabel htmlFor={crypto.randomUUID()}>
+        <StyledSearchLabel htmlFor="filter">
           Find contacts by name👇
         </StyledSearchLabel>
         <StyledSearchInput
-          id={crypto.randomUUID()}
+          id="filter"
           type="text"
           name="name"
-          //   value={name}
+          value={name}
           onChange={changeFilter}
         />
       </StyledSearchWrapper>

@@ -17,9 +17,14 @@ export class App extends Component {
 
   componentDidMount() {
     const contacts = JSON.parse(window.localStorage.getItem('contacts'));
+    // const filter = JSON.parse(window.localStorage.getItem('filter'));
+
     if (contacts?.length) {
-      this.setState({ contacts });
+      this.setState({ contacts, filter: '' });
     }
+    // if (filter?.length > 0) {
+    //   this.setState({ filter });
+    // }
   }
 
   componentDidUpdate(_, prevState) {
@@ -29,9 +34,9 @@ export class App extends Component {
         JSON.stringify(this.state.contacts)
       );
     }
-    if (prevState.filter !== this.state.filter) {
-      window.localStorage.setItem('filter', JSON.stringify(this.state.filter));
-    }
+    // if (prevState.filter !== this.state.filter) {
+    //   window.localStorage.setItem('filter', JSON.stringify(this.state.filter));
+    // }
   }
 
   handleAddNewContact = newData => {
@@ -101,7 +106,10 @@ export class App extends Component {
         <div>
           <AddContact addContact={this.handleAddNewContact} />
 
-          <SearchContacts changeFilter={this.handlChangeFilter} />
+          <SearchContacts
+            name={contacts.name}
+            changeFilter={this.handlChangeFilter}
+          />
           {!contacts.length ? (
             Notiflix.Notify.warning('There are no contacts yet')
           ) : (

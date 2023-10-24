@@ -36,25 +36,23 @@ export class AddContact extends Component {
     return (
       <div>
         <StyledAddContactForm onSubmit={this.handleSubmit}>
-          <StyledAddContactLabel htmlFor={crypto.randomUUID()}>
-            Name
-          </StyledAddContactLabel>
+          <StyledAddContactLabel htmlFor="addName">Name</StyledAddContactLabel>
           <StyledAddContactInput
             type="text"
             value={name}
             name="name"
-            id={crypto.randomUUID()}
+            id="addName"
             onChange={this.handleOnChangeInput}
             required
           />
-          <StyledAddContactLabel htmlFor={crypto.randomUUID()}>
+          <StyledAddContactLabel htmlFor="addNumber">
             Number
           </StyledAddContactLabel>
           <StyledAddContactInput
             type="tel"
             value={number}
             name="number"
-            id={crypto.randomUUID()}
+            id="addNumber"
             onChange={this.handleOnChangeInput}
             placeholder="000-00-00"
             required
