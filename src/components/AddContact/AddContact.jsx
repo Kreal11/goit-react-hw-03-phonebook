@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import Notiflix from 'notiflix';
 import {
   StyledAddContactInput,
   StyledAddContactForm,
@@ -7,6 +6,7 @@ import {
   StyledAddContactButton,
 } from './AddContact.styled';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 export class AddContact extends Component {
   state = {
@@ -18,7 +18,7 @@ export class AddContact extends Component {
     e.preventDefault();
     const { number } = this.state;
     if (!parseInt(number)) {
-      Notiflix.Notify.warning('Please, enter numbers for the phone form');
+      toast.warning('Please, enter numbers for the phone form');
       return;
     }
     this.props.addContact(this.state);

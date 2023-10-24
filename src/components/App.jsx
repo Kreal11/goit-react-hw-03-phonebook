@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { AddContact } from './AddContact/AddContact';
 import { AllContacts } from './AllContacts/AllContacts';
 import { SearchContacts } from './SearchContact/SearchContact';
-import Notiflix from 'notiflix';
+import { toast } from 'react-toastify';
 
 export class App extends Component {
   state = {
@@ -60,9 +60,7 @@ export class App extends Component {
     );
 
     if (existingContact || existingNameWithoutSpace) {
-      return Notiflix.Notify.warning(
-        `${newContact.name} is already in contacts`
-      );
+      return toast.warning(`${newContact.name} is already in contacts`);
     } else {
       this.setState(prevState => ({
         contacts: [...prevState.contacts, newContact],
@@ -111,7 +109,7 @@ export class App extends Component {
             changeFilter={this.handlChangeFilter}
           />
           {!contacts.length ? (
-            Notiflix.Notify.warning('There are no contacts yet')
+            toast.warning('There are no contacts yet')
           ) : (
             <AllContacts
               dataContacts={filteredContact}
