@@ -31,4 +31,5 @@ export class SearchContacts extends Component {
 
 SearchContacts.propTypes = {
   changeFilter: PropTypes.func.isRequired,
+  name: PropTypes.string,
 };
