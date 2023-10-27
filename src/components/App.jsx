@@ -17,14 +17,10 @@ export class App extends Component {
 
   componentDidMount() {
     const contacts = JSON.parse(window.localStorage.getItem('contacts'));
-    // const filter = JSON.parse(window.localStorage.getItem('filter'));
 
     if (contacts?.length) {
       this.setState({ contacts, filter: '' });
     }
-    // if (filter?.length > 0) {
-    //   this.setState({ filter });
-    // }
   }
 
   componentDidUpdate(_, prevState) {
@@ -34,9 +30,6 @@ export class App extends Component {
         JSON.stringify(this.state.contacts)
       );
     }
-    // if (prevState.filter !== this.state.filter) {
-    //   window.localStorage.setItem('filter', JSON.stringify(this.state.filter));
-    // }
   }
 
   handleAddNewContact = newData => {

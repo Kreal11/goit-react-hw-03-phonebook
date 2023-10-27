@@ -6,12 +6,13 @@ import PropTypes from 'prop-types';
 export class AllContacts extends Component {
   render() {
     const { deleteContact, dataContacts } = this.props;
+
     return (
       <StyledAllContactsUl>
         {dataContacts.map(contact => {
           return (
             <OneContact
-              key={crypto.randomUUID()}
+              key={contact.id}
               {...contact}
               deleteContact={deleteContact}
             />
