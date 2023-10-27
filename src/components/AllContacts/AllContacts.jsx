@@ -9,7 +9,7 @@ export class AllContacts extends Component {
 
     return (
       <StyledAllContactsUl>
-        {dataContacts.map(contact => {
+        {dataContacts?.map(contact => {
           return (
             <OneContact
               key={contact.id}
