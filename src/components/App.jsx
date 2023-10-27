@@ -3,6 +3,7 @@ import { AddContact } from './AddContact/AddContact';
 import { AllContacts } from './AllContacts/AllContacts';
 import { SearchContacts } from './SearchContact/SearchContact';
 import { toast } from 'react-toastify';
+import styled from 'styled-components';
 
 export class App extends Component {
   state = {
@@ -102,7 +103,7 @@ export class App extends Component {
             changeFilter={this.handlChangeFilter}
           />
           {!contacts.length ? (
-            toast.warning('There are no contacts yet')
+            <StyledPlug>There are no contacts yet😭</StyledPlug>
           ) : (
             <AllContacts
               dataContacts={filteredContact}
@@ -114,3 +115,9 @@ export class App extends Component {
     );
   }
 }
+
+const StyledPlug = styled.p`
+  text-align: center;
+  margin-top: 30px;
+  font-size: 18px;
+`;
